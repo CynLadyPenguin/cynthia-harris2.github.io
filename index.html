@@ -2,12 +2,82 @@
 <html>
     <head>
         <title>Spectacular Spectacular</title>
+        <style>
+            body {
+                background: rgb(70, 8, 8);
+                color: rgb(45, 45, 45);
+                padding: 10px;
+                font-family: arial;
+            }
+            #all-contents {
+                max-width: 800px;
+                margin: auto;
+            }
+            border {
+                -webkit-border-radius: 22px;
+                -moz-border-radius: 22px;
+                border-radius: 22px;
+            }
+            /* navigation menu */
+            nav {
+                background: rgb(77, 7, 134);
+                margin: 0 auto;
+                display: flex;
+                padding: 10px;
+            }
+            nav h1 {
+                display: flex;
+                align-items: center;
+                color: white;
+                flex: 1;
+                margin: 0;
+            }
+            nav ul {
+                list-style-image: none;
+            }
+            nav li {
+                display: inline-block;
+                padding: 0 10px;
+            }
+            nav a {
+                text-decoration: none;
+                color: #fff;
+            }
+        
+            /* main container area beneath menu */
+            main {
+                background: rgb(245, 238, 219);
+                display: flex;
+            }
+            .sidebar {
+                margin-right: 25px;
+                padding: 10px;
+            }
+            .sidebar img {
+                width: 200px;
+            }
+            .content {
+                flex: 1;
+                padding: 15px;
+            }
+            h2, h3 {
+                margin: 0px;
+            }
+        </style>
     </head>
     
     <body>
         <div id="all-contents"> 
             <nav>
-    
+                <h1>Cynthia's Spectacular Website</h1>
+                <ul>
+                    <li>
+                      <a href="index.html"> Home </a>
+                    </li>
+                    <li>
+                      <a href="portfolio.html"> Portfolio </a>
+                  </li>
+                </ul>
             </nav>
     
             <main>
