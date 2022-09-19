@@ -14,6 +14,12 @@
  */
 function length(string) {
     // YOUR CODE BELOW HERE //
+    /*
+    I: Input is a string
+    O: Output is a number representing the length of the string
+    C:
+    E: 
+    */ 
     return string.length;
     // YOUR CODE ABOVE HERE //
 }
@@ -23,6 +29,12 @@ function length(string) {
  */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
+    /*
+    I: Input is a string
+    O: Output is the input string entirely lowercased
+    C:
+    E: 
+    */ 
     return string.toLowerCase();
     // YOUR CODE ABOVE HERE //
 }
@@ -32,6 +44,12 @@ function toLowerCase(string) {
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
+    /*
+    I: Input is a string
+    O: Output is a completely uppercased string
+    C:
+    E: 
+    */ 
     return string.toUpperCase();
     // YOUR CODE ABOVE HERE //
 }
@@ -51,6 +69,12 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
+    /*
+    I: Input is a string 
+    O: Output is the string with a dash in every empty space and the entire string lowercased
+    C:
+    E: 
+    */ 
     return string.replace(/[" "]/g, "-").toLowerCase();
     // YOUR CODE ABOVE HERE //
 }
@@ -69,6 +93,12 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
+    /*
+    I: Input is a string and a character
+    O: Output is a boolean representing whether the character matches the string's first character
+    C: The function should not be case sensitive
+    E: 
+    */ 
     if(string.charAt(0).toUpperCase() === char.toUpperCase()){
         return true;
     }
@@ -90,6 +120,12 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
+    /*
+    I: Input is a string and a character
+    O: Output is a boolean representing whether the input character is a match to the string's last character
+    C: The function should not be case sensitive
+    E: 
+    */ 
     if(string.charAt(string.length - 1).toUpperCase() === char.toUpperCase()){
         return true;
     }
@@ -104,6 +140,12 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    /*
+    I: Input is two strings 
+    O: Output is the two strings joined/concatenated 
+    C: Should use the string concatenation operator
+    E: 
+    */ 
     return stringOne + stringTwo;
     // YOUR CODE ABOVE HERE //
 }
@@ -120,9 +162,14 @@ function concat(stringOne, stringTwo) {
  */
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    /*
+    I: Input is two strings 
+    O: Output is the two strings "joined" 
+    C: The output string should not have any spaces in between each element
+    E: 
+    */ 
     var args = Array.from(arguments);
-    return stringOne + stringTwo;
-
+    return args.join("");
     // YOUR CODE ABOVE HERE //
 }
 
@@ -137,9 +184,17 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    
-
-
+    /*
+    I: Input is two strings 
+    O: Output is the longer of the two strings
+    C:
+    E: 
+    */ 
+    if(stringOne.length > stringTwo.length){
+        return stringOne;
+    } else {
+        return stringTwo;
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -152,9 +207,19 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
+    /*
+    I: Input is two strings 
+    O: Output is a number 1, 0, -1 that represents whether stringOne is alphabetically higher/lower than stringTwo
+    C:
+    E: 
+    */ 
+    if(stringOne < stringTwo){
+        return 1;
+    } else if(stringOne > stringTwo){
+        return -1;
+    } else {
+        return 0;
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -168,10 +233,19 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
-
+    /*
+    I: Input is two strings 
+    O: Output is a number 1, 0, -1 that represents whether stringOne is alphabetically higher/lower than stringTwo
+    C:
+    E: 
+    */ 
+    if(stringOne > stringTwo){
+        return 1;
+    } else if(stringOne < stringTwo){
+        return -1;
+    } else {
+        return 0;
+    }
     // YOUR CODE ABOVE HERE //
 }
 
