@@ -21,9 +21,13 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
+    let reversed = "";
+    let inputSplit = input.split("");
+    for(let i = inputSplit.length - 1; i >= 0; i--){
+        reversed += inputSplit[i];
+    }
     
-    
-    
+    return reversed;
     
     // YOUR CODE GOES ABOVE HERE //
 }
