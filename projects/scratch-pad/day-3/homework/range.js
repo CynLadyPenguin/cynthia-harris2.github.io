@@ -23,10 +23,17 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
+    let emptyArray = [];
+    if(end > start){
+        for(let i = start; i <= end; i++){
+            emptyArray.push(i);
+        }
+    } else if(end < start){
+        for(let j = start; j >= end; j--){
+            emptyArray.push(j);
+        }
+    }
+    return emptyArray;
     // YOUR CODE GOES ABOVE HERE //
 }
 

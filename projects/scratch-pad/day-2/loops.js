@@ -12,6 +12,12 @@
  */
 function printArrayValues(array) {
   // YOUR CODE BELOW HERE //
+  /*
+  I: input is an array
+  O: output is the array elements 
+  C:
+  E:
+  */
   for(let i = 0; i < array.length; i++){
     console.log(array[i]);
   } 
@@ -24,6 +30,12 @@ function printArrayValues(array) {
  */
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
+  /*
+  I: input is an array
+  O: output is the array elements printed in reverse
+  C:
+  E:
+  */
   for(let i = array.length - 1; i >= 0; i--){
     console.log(array[i]);
   } 
@@ -35,6 +47,12 @@ function printArrayValuesInReverse(array) {
  */
 function getObjectKeys(object) {
   // YOUR CODE BELOW HERE //
+  /*
+  I: input is an object
+  O: output is an array of the object's keys
+  C:
+  E:
+  */
   return Object.keys(object);
   // YOUR CODE ABOVE HERE //
 }
@@ -45,6 +63,12 @@ function getObjectKeys(object) {
  */
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
+  /*
+  I: input is an object
+  O: output is the object's keys 
+  C:
+  E:
+  */
   for(let keys in object){
     console.log(keys);
   }
@@ -56,6 +80,12 @@ function printObjectKeys(object) {
  */
 function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
+  /*
+  I: input is an object
+  O: output is an array of the object's values 
+  C:
+  E:
+  */
   return Object.values(object); 
   // YOUR CODE ABOVE HERE //
 }
@@ -66,6 +96,12 @@ function getObjectValues(object) {
  */
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
+  /*
+  I: input is an object
+  O: output is the object's values 
+  C:
+  E:
+  */
   for(let keys in object){
     console.log(object[keys]);
   } 
@@ -77,6 +113,12 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
+  /*
+  I: input is an object
+  O: output is a number representing the number of key/values in the input object
+  C:
+  E:
+  */
   return Object.keys(object).length;
   // YOUR CODE ABOVE HERE //
 }
@@ -88,8 +130,8 @@ function getObjectLength(object) {
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
   /*
-  I:
-  O:
+  I: input is an object
+  O: output is an array with the object's values printed in reverse
   C:
   E:
   */
