@@ -5,11 +5,29 @@
 // Example:  5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5);  // 120
 var factorial = function(n) {
+  //base case: if the number is 1 or 0 then just return 1. 0 cannot be factorialed because anything x0 is zero
+  if(n === 0 || n === 1){
+    return 1;
+  }
+  //if n is negative then return null because a - x - is a positive
+  if(n < 0){
+    return null;
+  }
+  //recursive case: factorial is a number multiplied by the number under it. n will change each cycle and become the number below it
+  return n * factorial(n - 1);
 };
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
-var sum = function(array) {
+var sum = function(array, output = 0) {
+  //base case: if the array has no more elements in it then return the sum (totaled in output)
+  if(array.length === 0){
+    return output;
+  }
+  //recursive case: set output to equal the first element of the array + output. 
+  //Slice off the first element of the array then it becomes the new array[0] and output changes
+   return output = array[0] + sum(array.slice(1), output);
+ 
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
@@ -19,17 +37,43 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  if(n === 0){
+    return true;
+  } else if(n === 1){
+    return false;
+  }
+  if(n > 0){
+  return isEven(n - 2);
+  } else if(n < 0){
+    return isEven(n + 2);
+  }
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  //base case: if n is 0 then return 0
+  if(n === 0){
+    return 0;
+  } 
+  if(n < 0){
+    return n - sumBelow(-n - 1) + 1;
+  } else if(n > 0){
+    return n + sumBelow(n - 1) - 1
+  }
 };
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
+var range = function(x, y, output = []) {
+  //base case: if x, y are same number or one number apart
+  if(x === y){
+    return output;
+  } else if(y - x === 1){
+    return y + 1;
+  }
+
 };
 
 // 7. Compute the exponent of a number.
@@ -49,6 +93,7 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+  //base case:
 };
 
 // 10. Write a function that determines if a string is a palindrome.
