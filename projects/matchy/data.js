@@ -8,6 +8,8 @@
  * and read every instruction carefully.
  */
 
+// const { some } = require("lodash");
+
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -76,14 +78,14 @@ console.log(animals.length);
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-var friends = []; //I chose array because array's are great for holding ordered lists of strings
-function getRandom(animals){
-  return Math.floor(Math.random() * animals.length); 
+var friends = [];
+function getRandom(array){
+  return Math.floor(Math.random() * array.length);
 }
-var random = animals[getRandom(animals)].name;
-friends.push(random);
-animals[1].friends = friends;
-
+friends.push(animals[getRandom(animals)].name);
+console.log(friends);
+animals[0]["friends"] = friends;
+console.log(animals);
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
