@@ -21,12 +21,16 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
+    //create empty string variable to hold the output
     let reversed = "";
+    //create variable to hold the split string(split at every element/character)
     let inputSplit = input.split("");
+    //loop over the split string back to front
     for(let i = inputSplit.length - 1; i >= 0; i--){
+      //assign the empty string var to hold each element of the array as it comes out of the loop
         reversed += inputSplit[i];
     }
-    
+    //return the variable that now holds the reversed string
     return reversed;
     
     // YOUR CODE GOES ABOVE HERE //
