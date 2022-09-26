@@ -20,6 +20,7 @@ function length(string) {
     C:
     E: 
     */ 
+   //return the length of the string. should return a number
     return string.length;
     // YOUR CODE ABOVE HERE //
 }
@@ -35,6 +36,7 @@ function toLowerCase(string) {
     C:
     E: 
     */ 
+   //return the whole string lowercased
     return string.toLowerCase();
     // YOUR CODE ABOVE HERE //
 }
@@ -50,6 +52,7 @@ function toUpperCase(string) {
     C:
     E: 
     */ 
+   //return the whole string uppercased
     return string.toUpperCase();
     // YOUR CODE ABOVE HERE //
 }
@@ -75,6 +78,7 @@ function toDashCase(string) {
     C:
     E: 
     */ 
+   //replace all the empty spaces in the string with a - and lowercase the whole string
     return string.replace(/[" "]/g, "-").toLowerCase();
     // YOUR CODE ABOVE HERE //
 }
@@ -99,9 +103,11 @@ function beginsWith(string, char) {
     C: The function should not be case sensitive
     E: 
     */ 
+   //if the first index of the string(uppercased) matches the input character(uppercased to match) then return true
     if(string.charAt(0).toUpperCase() === char.toUpperCase()){
         return true;
     }
+    //else return false
     return false;
     // YOUR CODE ABOVE HERE //
 }
@@ -126,9 +132,11 @@ function endsWith(string, char) {
     C: The function should not be case sensitive
     E: 
     */ 
+   //if the last character of the string(uppercased) matches the character(uppercased) then return true
     if(string.charAt(string.length - 1).toUpperCase() === char.toUpperCase()){
         return true;
     }
+    //otherwise return false
     return false;
     // YOUR CODE ABOVE HERE //
 }
@@ -146,6 +154,7 @@ function concat(stringOne, stringTwo) {
     C: Should use the string concatenation operator
     E: 
     */ 
+   //return the strings combined using (+)
     return stringOne + stringTwo;
     // YOUR CODE ABOVE HERE //
 }
@@ -168,6 +177,7 @@ function join(stringOne, stringTwo) {
     C: The output string should not have any spaces in between each element
     E: 
     */ 
+   //return the variable args(which is the arguments) using .join(). Do not put space in between the strings so they'll join with no spaces
     var args = Array.from(arguments);
     return args.join("");
     // YOUR CODE ABOVE HERE //
@@ -190,9 +200,10 @@ function longest(stringOne, stringTwo) {
     C:
     E: 
     */ 
+   //if the 1st string is longer than the second return the first string
     if(stringOne.length > stringTwo.length){
         return stringOne;
-    } else {
+    } else { //otherwise return the second string
         return stringTwo;
     }
     // YOUR CODE ABOVE HERE //
@@ -213,11 +224,13 @@ function sortAscending(stringOne, stringTwo) {
     C:
     E: 
     */ 
+   //if str1 is alphabetically lower than str2 (meaning closer to A) then return 1
     if(stringOne < stringTwo){
         return 1;
+        //if str2 is alphabetically lower then return -1
     } else if(stringOne > stringTwo){
         return -1;
-    } else {
+    } else { //if both strings start with the same letter then return 0
         return 0;
     }
     // YOUR CODE ABOVE HERE //
@@ -239,11 +252,13 @@ function sortDescending(stringOne, stringTwo) {
     C:
     E: 
     */ 
+   //if str1 is alphabetically higher(closer to Z) then return 1
     if(stringOne > stringTwo){
         return 1;
+        //if str2 is alphabetically higher then return -1
     } else if(stringOne < stringTwo){
         return -1;
-    } else {
+    } else { //if they start with the same letter then return 0
         return 0;
     }
     // YOUR CODE ABOVE HERE //
