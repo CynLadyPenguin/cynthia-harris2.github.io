@@ -13,10 +13,13 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
+    //return a function that takes in a value as parameter
     return function(value){
+        //if that value is greater than the base then return true
         if(value > base){
             return true;
         }
+        //otherwise return false
         return false;
     }
     
@@ -32,10 +35,13 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
+    //return a function that takes in a value as its parameter
     return function(value){
+        //if that value is less than the base return true
         if(value < base){
             return true;
         }
+        //otherwise return false
         return false;
     }
     
@@ -51,10 +57,13 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
+    //return a function that takes in a string
     return function(string){
+        //if the first character(uppercased) matches the startsWith char(uppercased) then return true
         if(string.charAt(0).toUpperCase() === startsWith.toUpperCase()){
             return true;
         }
+        //otherwise return false
         return false;
     } 
     // YOUR CODE ABOVE HERE //
@@ -67,10 +76,13 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
+    //return a function that takes in a string
     return function(string){
+        //if the last char(uppercased) matches the endsWith char(uppercased) then return true
         if(string.charAt(string.length - 1).toUpperCase() === endsWith.toUpperCase()){
             return true;
         }
+        //otherwise return false
         return false;
     }   
     // YOUR CODE ABOVE HERE //
@@ -85,6 +97,8 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
+    //return the strings array mapped 
+    //map should take in x and return x "tested" with the modify function
    return strings.map(x => modify(x));  
     // YOUR CODE ABOVE HERE //
 }
@@ -100,10 +114,13 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
+    //return the strings array that uses the method "every". Every should take in a function with a random parameter  
   return strings.every(function(x){
+    //if we run that x parameter through the "test" function and it all passes, return true
         if(test(x)){
             return true;
         }
+        //otherwise return false
         return false;
     })
     
