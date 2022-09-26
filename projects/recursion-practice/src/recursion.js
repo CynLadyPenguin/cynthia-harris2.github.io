@@ -37,14 +37,19 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  //if our num is 0, it's even. if it's 1 then it's odd so return false
   if(n === 0){
     return true;
   } else if(n === 1){
     return false;
   }
+  //if n is positive
   if(n > 0){
+    //return isEven with n - 2 until it either hits 0 or 1
   return isEven(n - 2);
+  //if n is negative
   } else if(n < 0){
+    //keep adding 2 to the number until it hits 0 or 1
     return isEven(n + 2);
   }
 };
@@ -57,9 +62,13 @@ var sumBelow = function(n) {
   if(n === 0){
     return 0;
   } 
+  //if n is negative
   if(n < 0){
+    //subtract the value at sumBelow(-n -1) and then add one to that num
     return n - sumBelow(-n - 1) + 1;
+    //if n is positive
   } else if(n > 0){
+    //add the value at sumBelow(n -1) and subtract 1 from that num
     return n + sumBelow(n - 1) - 1
   }
 };
