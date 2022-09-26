@@ -2,8 +2,12 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function objectValues(object) {
+const { keys } = require("lodash");
 
+function objectValues(object) {
+    //return Object.values with input object
+    //Ob.v will return the key values in an array
+    return Object.values(object);
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +31,13 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    //if the collection is an array we use Array.isArray to check
+    if(Array.isArray(collection)){
+        return "array";
+        //else use typeof to check if it's an obj
+    } else if(typeof collection === "object"){
+        return "object";
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -35,7 +45,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -43,7 +53,7 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+
 }
 
 //////////////////////////////////////////////////////////////////////
