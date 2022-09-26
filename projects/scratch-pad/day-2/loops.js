@@ -18,7 +18,9 @@ function printArrayValues(array) {
   C:
   E:
   */
+ //loop over the array forward to back
   for(let i = 0; i < array.length; i++){
+    //log the elements of the array
     console.log(array[i]);
   } 
   // YOUR CODE ABOVE HERE //
@@ -36,7 +38,9 @@ function printArrayValuesInReverse(array) {
   C:
   E:
   */
+ //loop over the array back to front
   for(let i = array.length - 1; i >= 0; i--){
+    //log the elements of the array in reverse
     console.log(array[i]);
   } 
   // YOUR CODE ABOVE HERE //
@@ -53,6 +57,7 @@ function getObjectKeys(object) {
   C:
   E:
   */
+ //using Ob.keys, return the property names in the obj
   return Object.keys(object);
   // YOUR CODE ABOVE HERE //
 }
@@ -69,7 +74,9 @@ function printObjectKeys(object) {
   C:
   E:
   */
+ //use for in loop to loop over the obj
   for(let keys in object){
+    //log the property's names/keys
     console.log(keys);
   }
   // YOUR CODE ABOVE HERE //
@@ -86,6 +93,7 @@ function getObjectValues(object) {
   C:
   E:
   */
+ //using obj.values return the key's values of the obj
   return Object.values(object); 
   // YOUR CODE ABOVE HERE //
 }
@@ -102,7 +110,9 @@ function printObjectValues(object) {
   C:
   E:
   */
+ //use for in loop to loop over obj
   for(let keys in object){
+    //log the obj key values
     console.log(object[keys]);
   } 
   // YOUR CODE ABOVE HERE //
@@ -119,6 +129,7 @@ function getObjectLength(object) {
   C:
   E:
   */
+ //use obj.keys to print the obj property names and .length(obj.keys output is an array) to log the number of keys the obj has
   return Object.keys(object).length;
   // YOUR CODE ABOVE HERE //
 }
@@ -135,11 +146,16 @@ function printObjectValuesInReverse(object) {
   C:
   E:
   */
+ //create empty array var to hold output
   let emptyArray = [];
+  //loop over obj
   for(let keys in object){
+    //push the key values into the empty array var
     emptyArray.push(object[keys]);
   }  
+  //take array variable with new elements inside and loop over it back to front
   for(let i = emptyArray.length - 1; i >= 0; i--){
+    //log the elements of the array
     console.log(emptyArray[i]);
   }
   // YOUR CODE ABOVE HERE //
