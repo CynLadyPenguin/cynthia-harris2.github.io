@@ -14,9 +14,12 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
+    //use Array.isArray to check if value is an array
     if(Array.isArray(value)){
+        //return true if value is an array
         return true;
     }
+    //return false if value is not an array
     return false;
     
     
@@ -33,17 +36,23 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
+    //check if value is an array using Array.isArray. return false if it is an array
     if(Array.isArray(value)){
         return false;
+        //use instanceof to check if value is a date. return false if it is a date
     } else if(value instanceof Date){
         return false;
+        //check if value is null. return false if value's value is null
     } else if(value === null){
         return false;
+        //check if value's type is undefined. return false if it is undefined
     } else if(typeof value === undefined){
         return false;
+        //check if value's type is an object and return true if it is
     } else if(typeof value === "object"){
         return true;
     } 
+    //if value is not any of the above (except an obj) it should return false
     return false;
     
     // YOUR CODE ABOVE HERE //
@@ -57,17 +66,23 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
+    //return true this time if value is an array
     if(Array.isArray(value)){
         return true;
+        //check if value is date
     } else if(value instanceof Date){
         return false;
+        //check if value's value is null
     } else if(value === null){
         return false;
+        //check if value's type is undefined
     } else if(typeof value === undefined){
         return false;
+        //return true if value is obj
     } else if(typeof value === 'object'){
         return true;
     }
+    //any type besides Array and obj should return false
     return false;
     // YOUR CODE ABOVE HERE //
 }
@@ -93,15 +108,20 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
+    //return "array" if value is array
    if(Array.isArray(value)){
     return "array";
+    //return "undefined" if value's value is undefined
    } else if(typeof value === undefined){
     return "undefined";
+    //return null(in string) if value is null
    } else if(value === null){
     return "null";
+    //return "date" if value if date
    } else if(value instanceof Date){
     return "date";
    } else{
+    //return the value's type
     return typeof value;
    } 
     // YOUR CODE ABOVE HERE //
