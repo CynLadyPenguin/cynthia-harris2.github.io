@@ -15,7 +15,19 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+    //create var to hold output as array
+    let newArr = [];
+  //create var to hold output as string
+  let newStr = "";
+  //loop over obj
+  for(var key in object){
+    //push keys into newArr
+    newArr.push(key);
+  } //close loop
+  //set newStr equal to the array with the keys "joined" with a space
+  newStr = newArr.join(" ");
+  //return newStr
+  return newStr;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -23,7 +35,22 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    //create var empty array
+    let emptyArr = [];
+    //create var empty str
+    let emptyStr = "";  
+    //loop over obj
+    for(var key in object){
+        //if typeof value is a string
+        if(typeof object[key] === "string"){
+    //push values into array
+    emptyArr.push(object[key]);
+    }
+}
+    //set empty str equal to array with values joined with a space
+    emptyStr = emptyArr.join(" ");
+    //return str var
+    return emptyStr;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -45,6 +72,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
+    //use the charAt, uppercase, and slice methods to capitalize the first index character of a single string
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
@@ -53,7 +81,16 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-
+    //create var to hold split string in array. String should be split into individual elements
+    let splitStr = string.split(" ");
+    //loop over the splitStr
+    for(var i = 0; i < splitStr.length; i++){
+        //set each element to have its 0 index capitalized
+        splitStr[i] = splitStr[i][0].toUpperCase() + splitStr[i].slice(1);
+    }
+    // return the splitStr joined
+    return splitStr.join(" ");
+    
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -61,7 +98,10 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+    //capitalize the first letter of name
+    var capName = object.name.charAt(0).toUpperCase() + object.name.slice(1);
+    //return the capName var with a welcome message
+    return `Welcome ${capName}!`;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -69,7 +109,9 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+    //capitalize obj name and capitalize obj species
+    //return them in backticks
+    return `${object["name"][0].toUpperCase() + object.name.slice(1)} is a ${object.species[0].toUpperCase() + object.species.slice(1)}`;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -77,7 +119,16 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    //create var to hold string of noises if obj has noises array
+    let stringy = "";
+    //if noises array exists
+    if(object.noises){
+        for(var i = 0; i < object.noises.length; i++){
+           
+        }
+    } else {
+        return "there are no noises";
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
