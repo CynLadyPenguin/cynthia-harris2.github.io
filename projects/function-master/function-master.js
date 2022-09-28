@@ -2,7 +2,7 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const { keys, split } = require("lodash");
+// const { keys, split } = require("lodash");
 
 function objectValues(object) {
     //return Object.values with input object
@@ -191,7 +191,10 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-   
+   //set obj[key] to value
+   object[key] = value;
+   //instructions don't specifically say to return the obj, but we need to here
+   return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -199,7 +202,20 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+    //loop over array
     
+    //loop through obj
+    for(var key in object){
+        //then loop over the array
+        for(var i = 0; i < array.length; i++){
+        //if the key is the same as the current element in the array then delete the key and the key's value
+        if(key === array[i]){
+            delete object[key];
+            delete key;
+        }
+        }
+    }
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
