@@ -2,7 +2,7 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const { keys } = require("lodash");
+const { keys, split } = require("lodash");
 
 function objectValues(object) {
     //return Object.values with input object
@@ -119,16 +119,19 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-    //create var to hold string of noises if obj has noises array
-    let stringy = "";
-    //if noises array exists
+    //if noises exists
     if(object.noises){
-        for(var i = 0; i < object.noises.length; i++){
-           
-        }
-    } else {
-        return "there are no noises";
+        //if noises is array
+        if(Array.isArray(object.noises)){
+            //if noises array has elements
+            if(object.noises.length > 0){
+                //join those elements in a string
+                return object.noises.join(" ");
+            }
+               
+        } 
     }
+    return "there are no noises";  
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -136,7 +139,11 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    //if the string INCLUDES word return true
+        if(string.includes(word)){
+            return true;
+        }
+        return false;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -144,7 +151,10 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    //push name into friend's array (create array if it doesn't exist)
+    object["friends"].push(name);
+    //return obj
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -152,7 +162,20 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+    //determine if obj has friend's array
+    if(object.friends){
+        //if array exists
+        if(Array.isArray(object.friends)){
+            //loop over the array
+            for(var i = 0; i < object.friends.length; i++){
+                //if current element is name, return true
+                if(object.friends[i] === name){
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -168,7 +191,7 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+   
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -176,7 +199,7 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -184,7 +207,11 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    //trying something new here 
+    //[these brackets will set the new array inside an array]
+    //using spread operator, create a "new Set" of array data. The spread op iterates 
+    //"Set" will remove the duplicates from the original array
+    return [...new Set(array)];
 }
 
 //////////////////////////////////////////////////////////////////////
