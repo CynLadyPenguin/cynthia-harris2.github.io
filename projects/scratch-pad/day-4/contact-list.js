@@ -58,7 +58,8 @@ function makeContactList() {
         //addContact is a function with a contact parameter
         addContact: function(contact){
             //addContact function should return contacts array with contact value pushed into it
-            return contacts.push(contact);
+            contacts.push(contact);
+            return contacts;
         },
         //function findContact takes in a fullName param
         findContact: function(fullName){
@@ -80,7 +81,7 @@ function makeContactList() {
             for(let i = 0; i < contacts.length; i++){
                 //if the current element matches the input contact
                 if(contacts[i] === contact){
-                    //remove the current element without affecting the other elements. Splice(element to remove, number of elements to remove)
+                    //remove the current element without affecting the other elements. 
                     return contacts.splice(i, 1);
                 }
             }
