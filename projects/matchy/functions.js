@@ -20,7 +20,7 @@ function search(array, string){
     //loop over the array from beginning 0 to end array.length
     for(let i = 0; i < array.length; i++){
         //the that array element's name property matches the string
-        if(array[i].name === string){
+        if(array[i].name.charAt(0).toUpperCase() === string.charAt(0).toUpperCase()){
             //assign name to the current element
           name = array[i];
           //return name
