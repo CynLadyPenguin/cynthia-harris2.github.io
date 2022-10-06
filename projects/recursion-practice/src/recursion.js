@@ -82,7 +82,7 @@ var range = function(x, y, output = []) {
   } else if(y - x === 1){
     return y + 1;
   }
-
+    output.push()
 };
 
 // 7. Compute the exponent of a number.

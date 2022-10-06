@@ -52,8 +52,8 @@ var oldestCustomer = function(array){
             }
             //return the accumulator
         return acc;
-        //.reduce should have a string value as its seed since we want to return a string of someone's name
-    }, "");
+        //no seed here because we want the reduce method to start at array[0]
+    });
     //return our oldest var since its value is the string 
     return oldest;
 };
@@ -68,11 +68,21 @@ var youngestCustomer = function(array){
         acc = current.name;
       }
       return acc;
-    }, "");
+      //we won't input a seed here because we want the first result to be array[o].age
+    });
     return youngest;
 };
 
-var averageBalance;
+var averageBalance = function(array){
+    //let's use reduce to add the balances
+    let average = _.reduce(function(acc, current){
+        //we need to convert the balances from strings with dollar signs to a number
+       let numbers = acc += Number(current.balance.replace(/\$|,/g, ""));
+    
+    return numbers;
+}, 0);
+    return average/array.length;
+};
 
 var firstLetterCount;
 
