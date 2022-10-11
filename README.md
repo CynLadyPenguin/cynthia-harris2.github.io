@@ -28,3 +28,9 @@ test will show how many parts of an assignment you are passing
 3) In input field, delete everything but /workspace/
 4) Select lodown from the list of files below
 5) Select index.js from the list of files shown for lodown
+
+# To Access myLodown
+1) Click on three lines in top left corner
+2) Click file > open file
+3) Delete everything in dialogue box except -> /workspace/
+4) Click myLodown > click index.js

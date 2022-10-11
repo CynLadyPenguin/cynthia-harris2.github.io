@@ -184,32 +184,19 @@ function isFriend(name, object) {
 
 function nonFriends(name, array) {
 //create empty array to return results into
-let nonfriends = []; 
-//iterate over the array looking for friends
-for(let i = 0; i < array.length; i++) {
-  //new var to hold the friends names that appear in the array
-    let friends = array[i].friends; 
-    //new variable to establish that the new friend shouldn't exist
-    let isFriend = false;
-    //if the name from the the array isn't the name we're testing for 
-    if(array[i].name !== name) { 
-      //iterate over the friends
-        for(let e = 0; e < friends.length; e++) { 
-          //if friends with second looping conditions is a friend
-            if(friends[e] === name) { 
-                isFriend = true; //record that they have the person as a friend
-            } 
-        }
-        //check if isFriend is false/ friend is not in the array
-        if(!isFriend) {
-            //if false, push current element/name into nonFriends
-        nonfriends.push(array[i].name); 
-    } else {
-        isFriend = true; 
-    }
+let nonfriend = []; 
+//use loop to access every value in array
+for(let i = 0; i < array.length; i++){
+    //if the current element's friend's array does include the name
+if(array[i].friends.includes(name)){
+    //do nothing
+    //else if the current name isn't the input name
+} else if(!(array[i].name === name)){
+    //push that name into the output array
+    nonfriend.push(array[i].name);
 }
 }
-return nonfriends;
+return nonfriend;
 }
 
 //////////////////////////////////////////////////////////////////////

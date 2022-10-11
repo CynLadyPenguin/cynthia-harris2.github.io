@@ -22,15 +22,21 @@ var _ = require(/* Replace this with the name of your lodown! */);
  */
 
 var maleCount = function(array) {
+    //let's use filter  //.filter function takes in an obj
     let numOfMales = _.filter(function(object){
+        //if the obj.gender is male 
         return object.gender === "male";
     });
+    //return the var length
     return numOfMales.length;
 };
 
 var femaleCount = function(array){
+    //gonna use reduce so we can accumulate a num
     let numOfFemales = _.reduce(function(acc, current){
+        //if the current gender is female
         if(current.gender === "female"){
+            //add 1 to the acc
             acc += 1;
         }
         return acc;
