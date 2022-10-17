@@ -3,7 +3,7 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require(/* Replace this with the name of your lodown! */);
+var _ = require("underbar");
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -23,9 +23,9 @@ var _ = require(/* Replace this with the name of your lodown! */);
 
 var maleCount = function(array) {
     //let's use filter  //.filter function takes in an obj
-    let numOfMales = _.filter(function(object){
+    let numOfMales = _.filter(array, function(customer){
         //if the obj.gender is male 
-        return object.gender === "male";
+        return customer.gender === "male";
     });
     //return the var length
     return numOfMales.length;
@@ -33,7 +33,7 @@ var maleCount = function(array) {
 
 var femaleCount = function(array){
     //gonna use reduce so we can accumulate a num
-    let numOfFemales = _.reduce(function(acc, current){
+    let numOfFemales = _.reduce(array, function(acc, current){
         //if the current gender is female
         if(current.gender === "female"){
             //add 1 to the acc
@@ -48,57 +48,128 @@ var oldestCustomer = function(array){
      //initialize var to hold highest age
     let highestAge = 0;
     //create return var and use .reduce on our array
-    let oldest = _.reduce(function(acc, curr){
+    let oldest = _.reduce(array, function(acc, curr){
         //if our current age is greater than the highest age (starts at 0, but is reassigned a new age after each iteration)
             if(curr.age > highestAge){
+                //set the accumulator to equal that current age's name property value 
+                acc = curr.name;
                 //set the highest age equal to the current age
                 highestAge = curr.age;
-                //set the accumulator to equal that current age's name property value 
-                acc = curr.age;
+  
             }
             //return the accumulator
         return acc;
         //no seed here because we want the reduce method to start at array[0]
-    });
+    },"");
     //return our oldest var since its value is the string 
     return oldest;
 };
 
 var youngestCustomer = function(array){
-    //create var to return our string of youngest customer's name
     //let's try reduce again for this one since .reduce is so versatile
-    let youngest = _.reduce(function(acc, current){
+    let youngest = _.reduce(array, function(acc, current){
       //if our customers age is lower than the acc age
       if(current.age < acc.age){
         //set the acc to the customer's name
-        acc = current.name;
+        acc = current;
       }
       return acc;
       //we won't input a seed here because we want the first result to be array[o].age
     });
-    return youngest;
+    return youngest.name;
 };
 
 var averageBalance = function(array){
     //let's use reduce to add the balances
-    let average = _.reduce(function(acc, current){
+    let average = _.reduce(array, function(acc, current){
         //we need to convert the balances from strings with dollar signs to a number
-       let numbers = acc += Number(current.balance.replace(/\$|,/g, ""));
+       acc += Number(current.balance.replace(/\$|,/g, ""));
     
-    return numbers;
+    return acc;
 }, 0);
     return average/array.length;
 };
 
-var firstLetterCount;
+var firstLetterCount = function(array, letter){
+    //we will use reduce to loop over the array and accumulate the number of letters
+    let firstLetter = _.reduce(array, function(acc, current){
+        //if the current name first index begins with the letter 
+        //uppercase both
+        if(current.name[0].toUpperCase() === letter.toUpperCase()){
+            //add 1 to the acc
+            acc += 1;
+        }
+        return acc;
+        //input a seed of 0 
+    }, 0);
+    return firstLetter;
+};
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function(array, customer, letter){
+    //let's use .reduce because we love it so much
+    let firstLetterFriends = _.reduce(array, function(acc, current){
+        //check if the current customer has a friend's array
+        if(current.name === customer){
+            //iterate over the friend's array
+            for(let i = 0; i < current.friends.length; i++){
+                //check if friend's name starts with the letter uppercase
+                if(current.friends[i].name[0].toUpperCase() === letter.toUpperCase()){
+                    //add 1 to acc
+                    acc += 1;
+                }
+            }
+        }
+        return acc;
+    }, 0);
+    return firstLetterFriends;
+};
 
-var friendsCount;
+var friendsCount = function(array, name){
+    //use reduce to accumulate the names into an array
+    let friend = _.reduce(array, function(acc, customer){
+            //iterate over friend's array
+            for(let j = 0; j < customer.friends.length; j++){
+                //if the name is in the friend's array
+                if(customer.friends[j].name === name){
+                    acc.push(customer.name);
+                }
+            }
+        return acc;
+    }, [])
+    return friend;
+};
 
-var topThreeTags;
-
-var genderCount;
+var topThreeTags = function(array){
+    let top = array.reduce(function(acc, current){
+      for(let i = 0; i < current.tags.length; i++){
+        if(acc[current.tags[i]]){
+          acc[current.tags[i]] += 1;
+        }else {
+          acc[current.tags[i]] = 1;
+        }
+      }
+      return acc;
+    }, {});
+    var sorted = Object.fromEntries(
+        Object.entries(top).sort(([,a],[,b]) => b-a));
+    var top3 = Object.keys(sorted).slice(0, 3);
+    return top3;
+  }
+  
+  
+var genderCount = function(array){
+    //assign a var and use reduce to accumulate the genders
+    let gender = _.reduce(array, function(acc, customer){
+        //if 
+        if(acc[customer.gender]){
+            acc[customer.gender] += 1;
+        } else {
+            acc[customer.gender] = 1;
+        }
+        return acc;
+    }, {});
+    return gender;
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

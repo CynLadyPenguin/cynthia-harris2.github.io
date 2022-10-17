@@ -184,11 +184,14 @@ _.contains = function(array, value){
 //alternative 
 
 _.contains = function(array, value){
+    //loop over the array
     for(let i = 0; i < array.length; i++){
+        //if the current element in the array is the value, return true
         if(array[i] === value){
             return true;
         }
     }
+    //else return false
     return false;
 }
 
