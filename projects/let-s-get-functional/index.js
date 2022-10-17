@@ -140,18 +140,26 @@ var friendsCount = function(array, name){
 };
 
 var topThreeTags = function(array){
+    //use reduce
     let top = array.reduce(function(acc, current){
+        //loop over the tags array
       for(let i = 0; i < current.tags.length; i++){
+        //if the tag has already been counted add 1
         if(acc[current.tags[i]]){
           acc[current.tags[i]] += 1;
         }else {
+            //else start a new tally for the tag
           acc[current.tags[i]] = 1;
         }
       }
       return acc;
     }, {});
+    //create a variable to hold the sorted object(high to low)
+    //the sort method in this case is designed to sort only the values in the
+    //"value" part of the obj
     var sorted = Object.fromEntries(
         Object.entries(top).sort(([,a],[,b]) => b-a));
+        //create a new variable to pull out the first 3 keys of the sorted array
     var top3 = Object.keys(sorted).slice(0, 3);
     return top3;
   }
@@ -160,10 +168,11 @@ var topThreeTags = function(array){
 var genderCount = function(array){
     //assign a var and use reduce to accumulate the genders
     let gender = _.reduce(array, function(acc, customer){
-        //if 
+        //if the gender is already tallied, add 1
         if(acc[customer.gender]){
             acc[customer.gender] += 1;
         } else {
+            //else create the tally name 
             acc[customer.gender] = 1;
         }
         return acc;
