@@ -158,8 +158,8 @@ var reverse = function(string, output = "") {
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
   //base case if string length is 0 return true
-  if(string.length = 0){
-    return true;
+  if(string.length === 0){
+    return;
   }
   //if the end of the string and the beginning of the string are the same then return true
   if(string[string.length - 1].toUpperCase() === string[0].toUpperCase()){
@@ -167,9 +167,10 @@ var palindrome = function(string) {
     //else return false
   } else if(string[string.length - 1].toUpperCase() !== string[0].toUpperCase()){
     return false;
-  } else {
-  return palindrome(string.slice(1, string.length - 1));
   }
+  //return function with string, sliced off 1 element from back of string
+  return palindrome(string, string.slice(string.length - 1, 1));
+
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -184,6 +185,11 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
+  //if x or y is 0 then return 0 because anything multiplied by 0 is 0
+  if(x === 0 || y === 0){
+    return 0;
+  }
+ return x += x + multiply(x, y - 1);
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -205,32 +211,73 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  //base case if strings are empty
+  if(str1 === "" && str2 === ""){
+    return true;
+  }
+
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str){
+var createArray = function(str, array = []){
+  //if the string is empty, return the output array
+  if(str.length == 0){
+    return array;
+  }
+  //push the first element of string into output array
+  array.push(str[0]);
+  //return function with 1 value sliced off front of string and output array
+  return createArray(str.slice(1), array);
 };
 
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = function (array, output = []) {
+  //check if array is empty/length is 0
+  if(array.length === 0){
+    return output;
+  }
+  //push last element of array into output
+  output.push(array[array.length - 1]);
+  //call function with array, slice last element and output var
+  return reverseArr(array.slice(array, array.length - 1, 1), output);
 };
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length) {
+var buildList = function(value, length, output = []) {
+  //if the length reaches 0, return output array 
+  if(length === 0){
+    return output;
+  }
+  //push the value into the output array
+  output.push(value);
+  //call the function with the value, length - 1, and output variable
+  return buildList(value, length - 1, output);
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = function(array, value, sum = 0) {
+  //base case if array is empty
+  if(array.length === 0){
+    return sum;
+  }
+  //if first element of array is equal to the value
+  if(array[0] === value){
+    //accumulate 1
+    return sum += 1;
+  }
+  //return the function with the next value at array[0]
+  return countOccurrence(array.slice(1), sum);
 };
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
+
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
@@ -271,7 +318,11 @@ var nthFibo = function(n) {
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
-var capitalizeWords = function(input) {
+var capitalizeWords = function(input, output = []) {
+  if(input.length === 0){
+    return output;
+  }
+  return output.push(input[0].toUpperCase()) + capitalizeWords(input.slice(1), output);
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
