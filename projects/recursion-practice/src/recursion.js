@@ -75,13 +75,29 @@ var sumBelow = function(n) {
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y, output = []) {
-  if(!array.length){
-    return [];
-  }
+  //if x and y are equal return an empty array
   if(x === y){
-    return [];
+    return output;
   }
-
+  //if x and y are right next to each other numerically return an empty array
+  if(x + 1 === y || x - 1 === y){
+    return output;
+  }
+  //if x and y have one number between them return an array of that one number
+  if (y - x === 2){
+    return [x + 1];
+  } else if(x < y) {
+    //otherwise create an output variable to hold the current value of x and y - 1
+    output = range(x, y - 1);
+    //push y - 1 if y is greater
+    output.push(y - 1);
+  } else { //x is the greater number
+    //output variable holds current value of x and y + 1 
+    output = range(x, y + 1);
+    //push y + 1
+    output.push(y + 1);
+  }
+  return output;
 };
 
 // 7. Compute the exponent of a number.
@@ -90,28 +106,70 @@ var range = function(x, y, output = []) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  //base case if exp reaches 0 return 1
+  if(exp === 0){
+    return 1; 
+  }
+  //if exp is 1 base is just itself so return base
+  if(exp === 1){
+    return base;
+  }
+  //if exp is positive
+  if(exp > 0){
+    //multiply the base times the exp -1
+    return base * exponent(base, exp - 1);
+  }else {//if exp is negative
+    //divide the base by the negative exp +1
+    return base / exponent(base, -exp + 1);
+  }
 };
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
+//power of two is a base 2 with n exp. So if 2^n resolves then it is a power of two
 var powerOfTwo = function(n) {
+  //0 cannot be a power of 2 because 2^0 = 1
+  if(n === 0){
+    return false;
+    //2^0 returns 1 so n = 1 can be our base case for division
+    //2 divided by 2 is 1!!
+  } else if(n === 1){
+    return true;
+  }
+  //keep dividing n by 2
+  return powerOfTwo(n/2);
 };
 
 // 9. Write a function that accepts a string a reverses it.
-var reverse = function(string) {
-  //base case:
+var reverse = function(string, output = "") {
+  //base case: if the string is empty
   if(string.length === 0){
-    return string;
+    return output;
   }
   //recursive case
-  console.log(string[string.length - 1]);
-  return reverse(string.slice(-1));
+  //access the last index of the string 
+  //call reverse on the string and slice(access string, start at end, slice 1 off)
+  return output += string[string.length - 1] + reverse(string.slice(string, string.length - 1, 1), output);
+  
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  //base case if string length is 0 return true
+  if(string.length = 0){
+    return true;
+  }
+  //if the end of the string and the beginning of the string are the same then return true
+  if(string[string.length - 1].toUpperCase() === string[0].toUpperCase()){
+    return true;
+    //else return false
+  } else if(string[string.length - 1].toUpperCase() !== string[0].toUpperCase()){
+    return false;
+  } else {
+  return palindrome(string.slice(1, string.length - 1));
+  }
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
