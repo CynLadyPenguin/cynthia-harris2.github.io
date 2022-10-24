@@ -439,13 +439,19 @@ var augmentElements = function(array, aug) {
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array, output = []) {
+var minimizeZeroes = function(array) {
+  //if array has no length then just return the array 
   if(array.length === 0){
-    return output;
+    return array;
   }
-  if(){
-
+  //new variable to hold recur call with first index sliced
+  var list = minimizeZeroes(array.slice(1));
+  //check if values are 0's 
+  if ((array[0] === 0 ^ list[0] === 0) || array[0] !== 0) {
+    //add zero index of array to front of new variable
+    list.unshift(array[0]);
   }
+  return list;  
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
@@ -453,15 +459,31 @@ var minimizeZeroes = function(array, output = []) {
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
 var alternateSign = function(array) {
-  //determine when the function should stop
-  if(array.length === 0){
-    return [];
+  //if array has no length return empty array
+  if (array.length === 0){
+     return [];
   }
-  //change first element to positive
-  if(array[0] < 0){
-    return array[0] + (array[0] * 2);
+  //assign recur call to new var with the entire array sliced
+  var output = alternateSign(array.slice(0, array.length - 1));
+  //assign new var value of whole array
+  var lng = array.length;
+  //if var remainder 2 is zero(if var is even)
+  if (lng %2 === 0) {
+    //if array ending is positive
+    if (array[lng - 1] > 0) {
+      //set pos array ending to neg array ending
+      array[lng - 1] = -array[lng - 1];
+    }
+  } else {
+    //if array ending is neg
+    if (array[lng - 1] < 0) {
+      //still set pos ending equal to neg ending
+      array[lng - 1] = -array[lng - 1];
+    }
   }
-
+  //push array ending into var output
+  output.push(array[lng - 1]);
+  return output;
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
