@@ -103,6 +103,8 @@ function listToArray(list, array = []) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function prepend(element, list) {
+  //return an obj with keys of value and rest
+  //value's value is the element(param) and rest's value is the list(param)
   return {value: element, rest: list};
 }
 
@@ -111,11 +113,14 @@ function prepend(element, list) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function nth(list, n) {
+  //if there's no list then return undefined
   if (!list) {
     return undefined;
+    //if input n is 0 return list.value
   }else if (n == 0){
     return list.value;
   }else {
+    //else call the nth function on list.rest and take 1 off n
     return nth(list.rest, n - 1);
 }
 }
