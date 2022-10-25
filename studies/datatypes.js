@@ -29,7 +29,7 @@
  * An object is a complex data type similar to an array. The big difference between the two is that objects have keys and value pairs. 
  * Example: var myObject = {
  *              name: "Cynthia",
- *              age: 30
+ *              age: 31
  *              } 
  * 
  * 

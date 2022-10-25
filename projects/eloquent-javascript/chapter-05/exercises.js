@@ -33,11 +33,11 @@ function loop(value, test, update, body) {
 // /////////////////////////////////////////////////////////////////////////////
 
 function every(array, test) {
-  //for in loop creating element variable to access element in array
-  for (let element of array) {
-    //pass the element(s) into the test function to check if it returns false
+  //for loop over array
+  for (let i = 0; i < array.length; i++) {
+    //pass the current element into the test func to test if it returns false
     //if it returns false, return false
-    if (test(element) === false) {
+    if (test(array[i]) === false) {
       return false;
     }
   }

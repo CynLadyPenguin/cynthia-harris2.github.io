@@ -11,7 +11,7 @@
  * 
  *  Example:
  *  Concatenate:
- *  console.log("Welcome" + "Home!"); //will add both values to log "Welcome Home!"
+ *  console.log("Thunder" + " Dome!"); //will add both values to log "Thunder Dome!"
  * 
  *  Concatenate Assignment:
  *  let str = "Welcome";
@@ -39,5 +39,12 @@
  *  Example:
  *  let text = "mother";
  *  console.log(text.replace("m", "br")); //will replace the "m" with a "br" to log a value of "brother"
+ * 
+ *  D. .concat method
+ *  The .concat method is used to combine two strings. It takes a calling string and a string to add and puts them together
+ *  into one string. 
+ *  let text = "mother";
+ *  let addedText = ", may I?"
+ *  console.log(text.concat(addedText)); //will combine the two strings to form the output "mother, may I?"
  */
 

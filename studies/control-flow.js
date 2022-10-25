@@ -20,11 +20,13 @@
  * Example:
  if("Array" === "array"){
   console.log("array");
-} else if ("Array" === "Array"){
-  console.log("Array");
-} else{
-  console.log("false");  //Should log to the console "Array"
-} 
+} else if ("Array" === "String"){
+  console.log("String");
+} else if("Array === "Array"){
+  console.log("Array");  //Should log to the console "Array"
+} else {
+  console.log("false")
+}
  *  
  * 
  * 1. SWITCH STATEMENTS
@@ -33,23 +35,23 @@
  * computer is looking for a specific value that it has been asked to find. An example is below. 
  * 
  * Example:
- * function getMealOfTheWeek(num) {
+ * function getSnackOfTheDay(num) {
  switch (num) {
   case 1:
-   return 'Red Beans';
+   return 'Chips';
   case 2:
-   return 'Jambalaya';
+   return 'Carrots';
   case 3:
-   return 'Gumbo';
+   return 'Chocolate';
   case 4:
-   return 'Shrimp Poboy';
+   return 'Coconut';
   case 5:
-   return 'Fried Catfish';
+   return 'Crackers';
   case 6:
-   return 'BBQ';
+   return 'Chicken Wings';
   case 7:
-   return 'Roasted Chicken';
+   return 'Cashews';
  }
 }
-console.log(getMealOfTheWeek(4)) // should log "Shrimp Poboy" to the console
+console.log(getSnackOfTheDay(4)) // should log "Coconut" to the console
  */

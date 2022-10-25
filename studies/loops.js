@@ -19,10 +19,10 @@
  *  Similar to a for loop, but better when you need unlimited looping or are unsure about the number of loops you need 
  * Example:
  * var count = 0;
- * while(count <= 10) {
+ * while(count <= 60) {
  * console.log(count);
  * count++;
- * }  //will loop numbers starting at 0 and ending at 10 (inclusive)
+ * }  //will loop numbers starting at 0 and ending at 60 (inclusive)
  * 
  * 
  * 2. FOR IN
@@ -40,16 +40,16 @@
  * Examples Looping Forward:
  * 
  * let count = 0; //starts count at 0
- * while (count <= 15) {  //tells count to stop at 15
- * console.log(count); //console log the numbers 0 - 15
+ * while (count <= 43) {  //tells count to stop at 43
+ * console.log(count); //console log the numbers 0 - 43
  * count++ //increment aka go forward
  * }
  * 
  * Example Looping Backwards To Zero:
  * 
- * let count = 10; //starts count at 10
+ * let count = 100; //starts count at 100
  * while (count >= 0){ //tells count to stop at and include 0
- * console.log(count); //console log the numbers 10 - 0
+ * console.log(count); //console log the numbers 100 - 0
  * count--; //decrement aka count backwards
  * }
  *  
@@ -60,14 +60,14 @@
  * 
  * Example Looping Forward Through Array:
  * 
- * var myArray = ["Cyn", "Law", "Mel", "Chuck"];
+ * var myArray = ["Cyn", "Law", "Mel", "Charles"];
  * for (var i = 0; i < myArray.length; i++){ //loop starts at 0 index ("Cyn"), stops at the end of the array, and increments
  * console.log(myArray[i]); //console log the looping array
  * }
  * 
  * Example Looping Backwards Through Array:
  * 
- * var myArray = ["Cyn", "Law", "Mel", "Chuck"];
+ * var myArray = ["Cyn", "Law", "Mel", "Charles"];
  * for (var i = myArray.length - 1; i = 0; i--){ //loop starts at the last value in myArray, stops at 0 index ("Cyn"), and decrements through the list
  * console.log(myArray[i]); //logs the array values backwards to the console
  * }
@@ -80,7 +80,7 @@
  * 
  * var person = {
  * name: "Cynthia",
- * age: 30,
+ * age: 31,
  * pets: true
  * }; // objects assigned to a variable need a semicolon at the end
  * 
